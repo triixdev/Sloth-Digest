@@ -2,7 +2,7 @@ services:
   - type: web
     name: sloth-digest
     runtime: static
-       staticPublishPath: .
+    staticPublishPath: .
     headers:
       - path: /*
         name: X-Content-Type-Options
