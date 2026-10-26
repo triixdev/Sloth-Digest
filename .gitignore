@@ -1,0 +1,12 @@
+# Your real chats and results never get committed
+inbox/*
+!inbox/.gitkeep
+digest.json
+digest.md
+digest.mp3
+.env
+*.env
+__pycache__/
+*.pyc
+node_modules/
+.DS_Store

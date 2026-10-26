@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<title>Privacy policy | SlothDigest</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top"><div class="wrap"><a class="brand" href="index.html">SlothDigest</a><nav><a href="index.html">Back to the tool</a></nav></div></header>
+<main class="doc">
+<h1>Privacy policy</h1>
+<p>Last updated October 26 2026.</p>
+
+<h2>The short version</h2>
+<p>We do not collect your chats. We do not use cookies. We do not run analytics. This site has no account system and no database.</p>
+
+<h2>What happens to your text</h2>
+<p>When you press the button this page sends your text to Ollama on your own computer. The address is localhost. The text never travels to our servers or to any other server. The page enforces this with a content security policy that only allows connections to localhost.</p>
+<p>The page keeps your text in memory only. Reloading the page or pressing Wipe everything removes it. Files you open are read inside the page and are not uploaded.</p>
+
+<h2>What the host can see</h2>
+<p>The site is served by a static hosting provider. Like any web host it may keep standard server logs such as your IP address and the time of the request. We do not combine these logs with anything and we do not read your chats because we never receive them.</p>
+
+<h2>The command line version</h2>
+<p>The Python script in the repository also runs on your computer. It sends nothing anywhere by default. Two optional features exist and both stay off until you set a key yourself.</p>
+<p>Sentry tracing sends timing and token counts for each model call. Message text and file names are not added. Local variables and personal data are switched off in the code.</p>
+<p>ElevenLabs speech sends the final two line digest to ElevenLabs so that it can create audio. This only happens when you pass the speak flag and set a key. Their own privacy policy applies to that text.</p>
+
+<h2>Your choices</h2>
+<p>Use the tool with the network unplugged if you want full certainty. Run the page from the repository folder. Do not set the optional keys.</p>
+
+<h2>Children</h2>
+<p>This tool is not directed at children under 13.</p>
+
+<h2>Changes and contact</h2>
+<p>If this policy changes the date above will change. To ask a question open an issue on the project repository on GitHub.</p>
+</main>
+<footer><div class="wrap"><a href="privacy.html">Privacy policy</a><a href="terms.html">Terms of service</a></div></footer>
+</body>
+</html>

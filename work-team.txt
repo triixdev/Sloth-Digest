@@ -1,0 +1,3 @@
+Asha: Staging deploy failed again. Rolling back
+Dev: Found it. Bad env var. Fix is merged
+Asha: Standup moved to 10:30 tomorrow. Please post your update in the thread before then

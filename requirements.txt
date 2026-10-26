@@ -1,0 +1,3 @@
+ollama
+sentry-sdk
+requests

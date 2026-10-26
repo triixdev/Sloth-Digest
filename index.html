@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src http://localhost:* http://127.0.0.1:*; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<title>SlothDigest: two lines every morning</title>
+<meta name="description" content="Paste your chats and get a two line digest from the open model Gemma. Everything runs on your own computer.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top"><div class="wrap">
+<a class="brand" href="index.html">SlothDigest</a>
+<nav><a href="#how">Run it</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></nav>
+</div></header>
+
+<main class="wrap">
+<section class="hero">
+<h1>Two lines. Every morning.</h1>
+<p>SlothDigest reads your group chats and tells you what happened and what to do today. It runs on your own computer with the open model Gemma. Your messages stay on your machine.</p>
+</section>
+
+<section class="tool" aria-label="Digest tool">
+<div class="panel">
+<p class="status" id="status" aria-live="polite">Checking for Ollama</p>
+<div id="statusSkel"><div class="skel w70"></div></div>
+<label for="model">Model</label>
+<select id="model" disabled><option>No model found</option></select>
+<div class="gap"></div>
+<label for="input">Your chats</label>
+<textarea id="input" spellcheck="false" placeholder="Paste chat text here. Start a new chat after a line that contains only three dashes. Add a title with a first line that begins with a hash and a space."></textarea>
+<div class="row">
+<button id="run" type="button" disabled>Make my digest</button>
+<button id="cancel" type="button" class="alt hidden">Cancel</button>
+<button id="sample" type="button" class="alt">Load sample chats</button>
+<button id="wipe" type="button" class="alt">Wipe everything</button>
+</div>
+<p class="empty flush">You can also open text files from your disk. They are read in this page only.</p>
+<div class="row"><input id="files" type="file" accept=".txt,text/plain" multiple aria-label="Open chat text files"></div>
+</div>
+
+<div class="panel" aria-live="polite">
+<div class="lbl">Your digest</div>
+<div id="out"><p class="empty">Your two lines will appear here.</p></div>
+</div>
+</section>
+
+<section class="block" id="facts">
+<h2>What you get</h2>
+<dl class="facts">
+<div><dt>Private</dt><dd>Your chats go from this page straight to Ollama on your own computer. No server of ours ever receives them.</dd></div>
+<div><dt>Free</dt><dd>No account. No key. No usage fee.</dd></div>
+<div><dt>Offline</dt><dd>Run it from the repository folder and it works with the network unplugged.</dd></div>
+<div><dt>Swappable</dt><dd>Pick any model you have installed. Gemma 3 is the default choice.</dd></div>
+<div><dt>Safe output</dt><dd>Results appear as plain text. Instructions hidden inside a chat are treated as data.</dd></div>
+<div><dt>Traceable</dt><dd>The command line version can send timing and token counts to Sentry. Message text is never added to traces.</dd></div>
+</dl>
+</section>
+
+<section class="block" id="how">
+<h2>Run it in three steps</h2>
+<ol class="steps">
+<li>Install Ollama from ollama.com and run <code>ollama pull gemma3:4b</code></li>
+<li>Open this page in Chrome or Edge or Firefox. Safari blocks the link to your computer.</li>
+<li>If the status above says blocked then allow this site and restart Ollama:
+<pre id="origins">OLLAMA_ORIGINS=https://your-site ollama serve</pre></li>
+</ol>
+<p>To skip the allow step run the page locally from the repository folder. Ollama trusts local addresses by default.</p>
+<pre>python3 -m http.server 8000 --directory site
+open http://localhost:8000</pre>
+</section>
+</main>
+
+<footer><div class="wrap">
+<a href="privacy.html">Privacy policy</a><a href="terms.html">Terms of service</a><a href="https://opensource.org/license/mit">MIT license</a>
+</div></footer>
+<script src="app.js"></script>
+</body>
+</html>
